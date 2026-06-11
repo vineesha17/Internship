@@ -1,0 +1,25 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "newpassword123";
+$database = "studentdb";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if(!$conn){
+    die("Connection failed: ". mysqli_connnect_error());
+}
+echo "Connected successfully<br><br>";
+$result = $conn->query("SELECT * FROM students");
+
+while($row = $result->fetch_assoc()) {
+echo "ID:" . $row['id'] . "<br>";
+echo "Name:" .$row['name']."<br>";
+echo "Email:" .$row['email']."<br>";
+echo "Age:" .$row['age']."<br>";
+
+}
+
+
+
+?>
